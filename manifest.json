@@ -1,0 +1,8 @@
+{
+  "manifest_version": 3,
+  "name": "Read Later — Oku Sonra",
+  "version": "1.0.0",
+  "description": "Kurgusal demo proje / Fictional demo project: local bilingual reading list.",
+  "permissions": ["activeTab", "storage"],
+  "action": { "default_popup": "popup.html", "default_title": "Oku Sonra / Read Later" }
+}
