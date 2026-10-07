@@ -2,7 +2,7 @@ export const MAX_ITEMS=200;
 export function cleanUrl(value){
   try{const url=new URL(value);if(!['http:','https:'].includes(url.protocol)||url.username||url.password)return null;url.hash='';return url.href;}catch{return null;}
 }
-export function isItem(item){return item && typeof item.id==='string' && typeof item.title==='string' && item.title.length>0 && item.title.length<=200 && cleanUrl(item.url)===item.url && typeof item.read==='boolean';}
+export function isItem(item){return item && typeof item.id==='string' && item.id.length>0 && typeof item.title==='string' && item.title.length>0 && item.title.length<=200 && typeof item.url==='string' && cleanUrl(item.url)!==null && cleanUrl(item.url)===item.url && typeof item.read==='boolean';}
 export function sanitize(items){if(!Array.isArray(items)||items.length>MAX_ITEMS||!items.every(isItem)||new Set(items.map(item=>item.url)).size!==items.length||new Set(items.map(item=>item.id)).size!==items.length)throw new Error('Invalid storage');return items;}
 export function addPage(items,tab,id){
   const url=cleanUrl(tab.url);
